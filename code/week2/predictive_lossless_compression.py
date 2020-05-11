@@ -70,7 +70,7 @@ def predictive_lossless_compression(img):
     plt.savefig("images/error_histogram.jpg")
     # After this we need the Huffman Codes for the Error based on above histogram.
     freq_map = {}
-    error_table = error_table.astype(np.int64)
+    # error_table = error_table.astype(np.int64)
     for num in error_table.flatten():
         if num not in freq_map:
             freq_map[num] = 1

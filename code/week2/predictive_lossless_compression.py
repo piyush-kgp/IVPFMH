@@ -7,7 +7,7 @@ import heapq
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--img_path", type=str, default="lena.jpeg")
+parser.add_argument("--img_path", type=str, default="images/lena.jpeg")
 
 
 class Node:
@@ -81,19 +81,20 @@ def predictive_lossless_compression(img):
     # print(len(huffman_codes)) # 237
 
     # huffman_codes = {k: int(v, 2) for k, v in huffman_codes.items()}
-    f = open("compressed_image.txt", 'a+')
+    fp = "images/compressed_image.txt"
+    f = open(fp, 'a+')
     for r in error_table:
         for c in r:
             f.write(str(int(huffman_codes[c], 2)))
             f.write(',')
         f.write('\n')
     f.close()
-    return huffman_codes, "compressed_image.txt", img.shape
+    return huffman_codes, fp, img.shape
 
 
-def reconstruct(huffman_codes, shape, filename):
+def reconstruct(huffman_codes, shape, fp):
     w,h = shape
-    error_table = [line.split(',')[:-1] for line in open("compressed_image.txt", 'r').read().split('\n')[:-1]]
+    error_table = [line.strip().split(',')[:-1] for line in open(fp, 'r').read().strip().split('\n')]
     error_table = np.array(error_table).astype(np.int64)
     huffman_codes_rev = {int(v, 2): k for k, v in huffman_codes.items()}
 
@@ -116,7 +117,7 @@ def reconstruct(huffman_codes, shape, filename):
             else:
                 img_rec[i,j] = (img_rec[i-1,j-1]+img_rec[i-1,j]+img_rec[i,j-1])/3 + error_table[i,j]
     # print(img_rec)
-    Image.fromarray(img_rec.astype(np.uint8), mode='L').save("lossless_compression.jpg")
+    Image.fromarray(img_rec.astype(np.uint8), mode='L').save("images/lossless_compression.jpg")
 
 
 
@@ -125,10 +126,9 @@ def main():
     img_path = args.img_path
     img = np.array(Image.open(img_path))
     img = np.mean(img, axis=2).astype(np.uint8)
-    Image.fromarray(img, mode='L').save("lena_bw.jpg")
     huffman_codes, filename, shape =predictive_lossless_compression(img)
     reconstruct(huffman_codes, shape, filename)
-    # test_huffman_encoding()
 
 if __name__=='__main__':
+    # test_huffman_encoding()
     main()

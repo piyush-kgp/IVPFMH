@@ -1,0 +1,1 @@
+Credits: https://github.com/dassencio/coursera-image-and-video-processing

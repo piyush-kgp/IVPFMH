@@ -77,25 +77,17 @@ def predictive_lossless_compression(img):
         else:
             freq_map[num] += 1
     huffman_codes = huffman(freq_map)
-    # print(freq_map, huffman_codes)
-    # print(len(huffman_codes)) # 237
 
-    # huffman_codes = {k: int(v, 2) for k, v in huffman_codes.items()}
+    error_table_encoded = np.asarray([[int(huffman_codes[c], 2) for c in r] for r in error_table])
+
     fp = "images/compressed_image.txt"
-    f = open(fp, 'a+')
-    for r in error_table:
-        for c in r:
-            f.write(str(int(huffman_codes[c], 2)))
-            f.write(',')
-        f.write('\n')
-    f.close()
+    np.savetxt(fp, error_table_encoded, fmt='%i')
     return huffman_codes, fp, img.shape
 
 
 def reconstruct(huffman_codes, shape, fp):
     w,h = shape
-    error_table = [line.strip().split(',')[:-1] for line in open(fp, 'r').read().strip().split('\n')]
-    error_table = np.array(error_table).astype(np.int64)
+    error_table = np.loadtxt(fp)
     huffman_codes_rev = {int(v, 2): k for k, v in huffman_codes.items()}
 
     for i in range(w):

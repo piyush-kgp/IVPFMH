@@ -4,7 +4,7 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--img_path", type=str)
+parser.add_argument("--img_path", type=str, default="images/lena.jpeg")
 
 def rotate(img, theta):
     theta_ = np.pi/180*theta
@@ -17,7 +17,7 @@ def rotate(img, theta):
             coords = np.array([row, col])
             row_new, col_new = T.dot(coords).astype(np.int)
             img_transformed[row_new, col_new] = pixel_data
-    Image.fromarray(img_transformed, mode='RGB').save("lena_rotated_{}.jpg".format(theta))
+    Image.fromarray(img_transformed, mode='RGB').save("images/lena_rotated_{}.jpg".format(theta))
 
 
 

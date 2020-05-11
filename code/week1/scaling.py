@@ -4,7 +4,7 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--img_path", type=str)
+parser.add_argument("--img_path", type=str, default="images/lena.jpeg")
 
 def scaling(img, block_size):
     n_rows, n_cols = img.shape
@@ -17,7 +17,7 @@ def scaling(img, block_size):
                 continue
             # print(row, col, patch.shape)
             img_new[row//block_size, col//block_size] = np.mean(patch).astype(np.uint8)
-    Image.fromarray(img_new, mode='L').save("lena_scaled_{}.jpg".format(block_size))
+    Image.fromarray(img_new, mode='L').save("images/lena_scaled_{}.jpg".format(block_size))
 
 
 def main():

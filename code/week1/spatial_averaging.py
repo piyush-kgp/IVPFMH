@@ -4,7 +4,7 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--img_path", type=str)
+parser.add_argument("--img_path", type=str, default="images/lena.jpeg")
 
 def spatial_averaging(img, n_neighbors):
     b = int(n_neighbors/2)
@@ -16,7 +16,7 @@ def spatial_averaging(img, n_neighbors):
             patch = img[row-b:row+b+1,col-b:col+b+1]
             img_new[row,col] = np.mean(patch).astype(np.uint8)
     img_new = img_new[b:-b,b:-b]
-    Image.fromarray(img_new, mode='L').save("lena_spatially_averaged_{}_pixels.jpg".format(n_neighbors))
+    Image.fromarray(img_new, mode='L').save("images/lena_spatially_averaged_{}_pixels.jpg".format(n_neighbors))
 
 
 def main():

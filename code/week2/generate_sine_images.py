@@ -25,20 +25,20 @@ def sine_image(freq, img_size=512):
     # X = (255*(X-X.min())/(X.max()-X.min())).astype(np.uint8)
     X = (255*(X+1)/2).astype(np.uint8)
     im = Image.fromarray(X)
-    im.save("sine_image_{}.jpg".format(freq))
+    im.save("images/synthetic/ine_image_{}.jpg".format(freq))
 
     X = X.astype(np.uint64)
     X_dct = dct2d(X)
-    save_img(X_dct, "dct_sine_{}.jpg".format(freq))
+    save_img(X_dct, "images/synthetic/dct_sine_{}.jpg".format(freq))
 
     X_rec = idct2d(X_dct)
-    save_img(X_rec, "fft_rec_sine_{}.jpg".format(freq))
+    save_img(X_rec, "images/synthetic/fft_rec_sine_{}.jpg".format(freq))
 
     X_fft = fft2d(X)
-    save_img(X_fft, "fft_sine_{}.jpg".format(freq))
+    save_img(X_fft, "images/synthetic/fft_sine_{}.jpg".format(freq))
 
     X_rec = ifft2d(X_fft)
-    save_img(X_rec, "fft_rec_sine_{}.jpg".format(freq))
+    save_img(X_rec, "images/synthetic/fft_rec_sine_{}.jpg".format(freq))
 
 
 def main():

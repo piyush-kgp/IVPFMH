@@ -1,4 +1,6 @@
 
+# Optional programming exercises
+
 - Add Gaussian and salt-and-pepper noise with different parameters to an image of your choice. Evaluate what levels of noise you consider still acceptable for visual inspection of the image.
 - Apply a median filter to the images you obtained above. Change the window size of the filter and evaluate its relationship with the noise levels.
 - Practice with Wiener filtering. Consider for example a Gaussian blurring (so you know exactly the H function) and play with different values of K for different types and levels of noise.

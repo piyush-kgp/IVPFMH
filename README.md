@@ -18,6 +18,3 @@ The course is organized as follows:
 7. **Week 7**: Image and video impainting
 8. **Week 8**: Sparse modelling and compression sensing
 9. **Week 9**: Medical imaging
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ab0gy92nlYI?start=27" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

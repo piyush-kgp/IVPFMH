@@ -1,4 +1,6 @@
 
+# Optional programming exercises
+
 - Implement a histogram equalization function. If using Matlab, compare your implementation with Matlab’s built-in function.
 - Implement a median filter. Add different levels and types of noise to an image and experiment with different sizes of support for the median filter. As before, compare your implementation with Matlab’s.
 - Implement the non-local means algorithm. Try different window sizes. Add different levels of noise and see the influence of it in the need for larger or smaller neighborhoods. (Such block operations are easy when using Matlab, see for example the function at <http://www.mathworks.com/help/images/ref/blockproc.html>). Compare your results with those available in IPOL as demonstrated in the video lectures.

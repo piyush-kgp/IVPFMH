@@ -1,3 +1,6 @@
+
+# Optional programming exercises
+
 - Do a basic implementation of JPEG:
 1. Divide the image into non-overlapping 8x8 blocks.
 2. Compute the DCT (discrete cosine transform) of each block. This is implemented in popular packages such as Matlab.

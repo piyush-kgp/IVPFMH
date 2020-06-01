@@ -4,7 +4,7 @@
 - Implement a histogram equalization function. If using Matlab, compare your implementation with Matlab’s built-in function.
 - Implement a median filter. Add different levels and types of noise to an image and experiment with different sizes of support for the median filter. As before, compare your implementation with Matlab’s.
 - Implement the non-local means algorithm. Try different window sizes. Add different levels of noise and see the influence of it in the need for larger or smaller neighborhoods. (Such block operations are easy when using Matlab, see for example the function at <http://www.mathworks.com/help/images/ref/blockproc.html>). Compare your results with those available in IPOL as demonstrated in the video lectures.
-1. Consider an image and add to it random noise. Repeat this N times, for different values of N, and add the resulting images. What do you observe?
+- Consider an image and add to it random noise. Repeat this N times, for different values of N, and add the resulting images. What do you observe?
 - Implement the basic color edge detector. What happens when the 3 channels are equal?
 - Take a video and do frame-by-frame histogram equalization and run the resulting video. Now consider a group of frames as a large image and do histogram equalization for all of them at once. What looks better? See this example on how to read and handle videos in Matlab:
 
